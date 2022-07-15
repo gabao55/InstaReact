@@ -1,61 +1,71 @@
-import Icon from "./Icon";
-
 export default function Posts() {
+    const posts = [
+        {
+            user: "meowed",
+            img: "gato-telefone",
+            likesUser: "respondeai",
+            likesTotal: "101.523"
+        },
+        {
+            user: "barked",
+            img: "dog",
+            likesUser: "adorable_animals",
+            likesTotal: "99.159"
+        },
+        {
+            user: "barked",
+            img: "dog",
+            likesUser: "adorable_animals",
+            likesTotal: "99.159"
+        },
+    ]
+
     return (
         <div class="posts">
-            <Postimage user="meowed"
-             post="./assets/img/gato-telefone.svg"
-             likesUser="respondeai"
-             likesTotal="101.523" />
 
-            <Postimage user="barked"
-            post="./assets/img/dog.svg"
-            likesUser="adorable_animals"
-            likesTotal="99.159" />
+            {posts.map(post => <PostImage post={post} />)}
 
-            <Postimage user="barked"
-            post="./assets/img/dog.svg"
-            likesUser="adorable_animals"
-            likesTotal="99.159" />
         </div>
     );
 }
 
-function Postimage(props) {
+function PostImage(props) {
+    const actionsIcons = ["heart-outline",
+        "chatbubble-outline",
+        "paper-plane-outline"]
+
     return (
         <div class="post">
             <div class="topo">
-            <div class="usuario">
-                <img src={"./assets/img/" + props.user + ".svg"} />
-                {props.user}
-            </div>
-            <div class="acoes">
-                <Icon name="ellipsis-horizontal" />
-            </div>
+                <div class="usuario">
+                    <img src={"./assets/img/" + props.post.user + ".svg"} />
+                    {props.post.user}
+                </div>
+                <div class="acoes">
+                    <ion-icon name="ellipsis-horizontal"></ion-icon>
+                </div>
             </div>
 
             <div class="conteudo">
-                <img src={props.post} />
+                <img src={"./assets/img/" + props.post.img + ".svg"} />
             </div>
 
             <div class="fundo">
-            <div class="acoes">
-                <div>
-                    <Icon name="heart-outline" />
-                    <Icon name="chatbubble-outline" />
-                    <Icon name="paper-plane-outline" />
+                <div class="acoes">
+                    <div>
+                        {actionsIcons.map(icon => <ion-icon name={icon}></ion-icon>)}
+                    </div>
+                    <div>
+                        <ion-icon name="bookmark-outline"></ion-icon>
+                    </div>
                 </div>
-                <div>
-                    <Icon name="bookmark-outline" />
-                </div>
-            </div>
 
-            <div class="curtidas">
-                <img src={"./assets/img/" + props.likesUser + ".svg"} />
-                <div class="texto">
-                    Curtido por <strong>{props.likesUser}</strong> e <strong>outras {props.likesTotal} pessoas</strong>
+                <div class="curtidas">
+                    <img src={"./assets/img/" + props.post.likesUser + ".svg"} />
+                    <div class="texto">
+                        Curtido por <strong>{props.post.likesUser}</strong> e <strong>outras {props.post.likesTotal} pessoas</strong>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     );

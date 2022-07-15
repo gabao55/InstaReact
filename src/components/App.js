@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import Mobilebottombar from "./Mobilebottombar";
+import Footer from "./Footer";
 import Body from "./Body";
 
 export default function App() {
@@ -7,7 +7,7 @@ export default function App() {
         <div>
             <Navbar />
             <Body />
-            <Mobilebottombar />
+            <Footer />
         </div>
     );
 }

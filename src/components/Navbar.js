@@ -22,6 +22,8 @@ export default function Navbar() {
                 <input type="text" placeholder="Pesquisar" />
             </div>
 
+
+            {/* TODO: Create list with map for icons */}
             <div class="icones">
                 <Icon name="paper-plane-outline" />
                 <Icon name="compass-outline" />

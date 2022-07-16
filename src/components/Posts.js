@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Posts() {
     const posts = [
         {
@@ -30,9 +32,9 @@ export default function Posts() {
 }
 
 function PostImage(props) {
-    const actionsIcons = ["heart-outline",
-        "chatbubble-outline",
-        "paper-plane-outline"]
+
+    const [curtida, setCurtida] = React.useState("heart-outline");
+    const [color, setColor] = React.useState("#262626");
 
     return (
         <div class="post">
@@ -47,13 +49,25 @@ function PostImage(props) {
             </div>
 
             <div class="conteudo">
-                <img src={"./assets/img/" + props.post.img + ".svg"} />
+                <img src={"./assets/img/" + props.post.img + ".svg"} onClick={() => {
+                    setCurtida("heart");
+                    setColor("#ed4956");
+                }} />
             </div>
 
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        {actionsIcons.map(icon => <ion-icon name={icon}></ion-icon>)}
+                        <ion-icon 
+                            name={curtida} 
+                            style={{color: color}}
+                            onClick={() => {
+                                (curtida === "heart-outline") ? setCurtida("heart") : setCurtida("heart-outline");
+                                (color === "#262626") ? setColor("#ed4956") : setColor("#262626");
+                            }}
+                        ></ion-icon>
+                        <ion-icon name="chatbubble-outline"></ion-icon>
+                        <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
                         <ion-icon name="bookmark-outline"></ion-icon>

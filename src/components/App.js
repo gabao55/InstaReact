@@ -1,12 +1,12 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Body from "./Body";
+import Main from "./Main";
 
 export default function App() {
     return (
         <div>
             <Navbar />
-            <Body />
+            <Main />
             <Footer />
         </div>
     );

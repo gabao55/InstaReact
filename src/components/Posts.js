@@ -25,14 +25,24 @@ export default function Posts() {
     return (
         <div class="posts">
 
-            {posts.map(post => <PostImage post={post} />)}
+            {posts.map(post => <PostImage 
+                user={post.user} 
+                img={post.img} 
+                likesUser={post.likesUser} 
+                likesTotal={post.likesTotal} 
+            />)}
 
         </div>
     );
 }
 
-function PostImage(props) {
-
+function PostImage({
+    user,
+    img,
+    likesUser,
+    likesTotal
+}) {
+    
     const [curtida, setCurtida] = React.useState("heart-outline");
     const [color, setColor] = React.useState("#262626");
 
@@ -40,8 +50,8 @@ function PostImage(props) {
         <div class="post">
             <div class="topo">
                 <div class="usuario">
-                    <img src={"./assets/img/" + props.post.user + ".svg"} />
-                    {props.post.user}
+                    <img src={"./assets/img/" + user + ".svg"} />
+                    {user}
                 </div>
                 <div class="acoes">
                     <ion-icon name="ellipsis-horizontal"></ion-icon>
@@ -49,7 +59,7 @@ function PostImage(props) {
             </div>
 
             <div class="conteudo">
-                <img src={"./assets/img/" + props.post.img + ".svg"} onClick={() => {
+                <img src={"./assets/img/" + img + ".svg"} onDoubleClick={() => {
                     setCurtida("heart");
                     setColor("#ed4956");
                 }} />
@@ -75,9 +85,9 @@ function PostImage(props) {
                 </div>
 
                 <div class="curtidas">
-                    <img src={"./assets/img/" + props.post.likesUser + ".svg"} />
+                    <img src={"./assets/img/" + likesUser + ".svg"} />
                     <div class="texto">
-                        Curtido por <strong>{props.post.likesUser}</strong> e <strong>outras {props.post.likesTotal} pessoas</strong>
+                        Curtido por <strong>{likesUser}</strong> e <strong>outras {likesTotal} pessoas</strong>
                     </div>
                 </div>
             </div>

@@ -22,14 +22,14 @@ export default function Stories() {
     );
 }
 
-function Story(props) {
+function Story({user}) {
     return (
         <div class="story">
           <div class="imagem">
-            <img src={"./assets/img/" + props.user + ".svg"} alt={props.user + "profile image"} />
+            <img src={"./assets/img/" + user + ".svg"} alt={user + "profile image"} />
           </div>
           <div class="usuario">
-            {props.user}
+            {user}
           </div>
         </div>
     );

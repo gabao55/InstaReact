@@ -38,14 +38,19 @@ export default function Sidebar() {
     );
 }
 
-function Suggestion(props) {
+function Suggestion(
+  {
+    user,
+    reason
+  }
+) {
     return (
         <div class="sugestao">
           <div class="usuario">
-            <img src={"./assets/img/" + props.user + ".svg"} />
+            <img src={"./assets/img/" + user + ".svg"} />
             <div class="texto">
-              <div class="nome">{props.user}</div>
-              <div class="razao">{props.reason}</div>
+              <div class="nome">{user}</div>
+              <div class="razao">{reason}</div>
             </div>
           </div>
 

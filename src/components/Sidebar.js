@@ -5,12 +5,12 @@ export default function Sidebar() {
         {user: "razoesparaacreditar", reason: "Novo no Instagram"},
         {user: "adorable_animals", reason: "Segue você"},
         {user: "smallcutecats", reason: "Segue você"},
-    ]
+    ];
 
     return (
         <div class="sidebar">
           <div class="usuario">
-            <img src="./assets/img/catanacomics.svg" />
+            <img src="./assets/img/catanacomics.svg" alt="catanacomics"/>
             <div class="texto">
               <strong>catanacomics</strong>
               Catana
@@ -44,10 +44,13 @@ function Suggestion(
     reason
   }
 ) {
+
+    const imageSource = "./assets/img/" + user + ".svg";
+
     return (
         <div class="sugestao">
           <div class="usuario">
-            <img src={"./assets/img/" + user + ".svg"} />
+            <img src={imageSource} alt={user}/>
             <div class="texto">
               <div class="nome">{user}</div>
               <div class="razao">{reason}</div>

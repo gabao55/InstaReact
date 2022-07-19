@@ -45,12 +45,15 @@ function PostImage({
     
     const [curtida, setCurtida] = React.useState("heart-outline");
     const [color, setColor] = React.useState("#262626");
+    const userImage = "./assets/img/" + user + ".svg";
+    const postImage = "./assets/img/" + img + ".svg";
+    const likesUserImage = "./assets/img/" + likesUser + ".svg";
 
     return (
         <div class="post">
             <div class="topo">
                 <div class="usuario">
-                    <img src={"./assets/img/" + user + ".svg"} />
+                    <img src={userImage} alt={user}/>
                     {user}
                 </div>
                 <div class="acoes">
@@ -59,7 +62,7 @@ function PostImage({
             </div>
 
             <div class="conteudo">
-                <img src={"./assets/img/" + img + ".svg"} onDoubleClick={() => {
+                <img src={postImage} onDoubleClick={() => {
                     setCurtida("heart");
                     setColor("#ed4956");
                 }} />
@@ -85,7 +88,7 @@ function PostImage({
                 </div>
 
                 <div class="curtidas">
-                    <img src={"./assets/img/" + likesUser + ".svg"} />
+                    <img src={likesUserImage} alt={likesUser}/>
                     <div class="texto">
                         Curtido por <strong>{likesUser}</strong> e <strong>outras {likesTotal} pessoas</strong>
                     </div>

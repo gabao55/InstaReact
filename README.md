@@ -1,4 +1,4 @@
-<h1 align='center'>ZapRecall</h1>
+<h1 align='center'>InstaReact</h1>
 
 InstaReact is a project developed for Driven Software Engineer bootcamp for the React.js and SPA module, you can check the deployed version by this [link](https://insta-react-opuby3wgo-gabao55.vercel.app/). This app consists just on a clone of Instagram's interface using the React.js Framework. This project was used just for getting familiarized with the framework.
 
